@@ -1,9 +1,8 @@
 <template>
   <q-item
+    :to="to"
     clickable
-    tag="a"
-    target="_blank"
-    :href="link"
+    exact
   >
     <q-item-section
       v-if="icon"
@@ -13,7 +12,7 @@
     </q-item-section>
 
     <q-item-section>
-      <q-item-label>{{ title }}</q-item-label>
+      <q-item-label>{{ label }}</q-item-label>
       <q-item-label caption>
         {{ caption }}
       </q-item-label>
@@ -25,17 +24,12 @@
 export default {
   name: 'EssentialLink',
   props: {
-    title: {
+    label: {
       type: String,
       required: true
     },
 
-    caption: {
-      type: String,
-      default: ''
-    },
-
-    link: {
+    to: {
       type: String,
       default: '#'
     },
